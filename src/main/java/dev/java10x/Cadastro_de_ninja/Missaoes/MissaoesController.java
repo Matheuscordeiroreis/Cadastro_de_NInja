@@ -1,7 +1,4 @@
 package dev.java10x.Cadastro_de_ninja.Missaoes;
-
-
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
