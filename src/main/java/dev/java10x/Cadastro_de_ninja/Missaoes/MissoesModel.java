@@ -1,6 +1,9 @@
 package dev.java10x.Cadastro_de_ninja.Missaoes;
 
+import dev.java10x.Cadastro_de_ninja.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table (name = "tb_missoes")
@@ -10,14 +13,25 @@ public class MissoesModel {
     private long id;
     private String nomemissao;
     private int niveldedificuldade;
+    @OneToMany
+    private List<NinjaModel> ninjas;
 
     public MissoesModel() {
     }
 
-    public MissoesModel(long id, int niveldedificuldade, String nomemissao) {
+    public List<NinjaModel> getNinjas() {
+        return ninjas;
+    }
+
+    public void setNinjas(List<NinjaModel> ninjas) {
+        this.ninjas = ninjas;
+    }
+
+    public MissoesModel(long id, int niveldedificuldade, String nomemissao, List ninjas) {
         this.id = id;
         this.niveldedificuldade = niveldedificuldade;
         this.nomemissao = nomemissao;
+        this.ninjas = ninjas;
     }
 
     public long getId() {
@@ -43,6 +57,8 @@ public class MissoesModel {
     public void setNiveldedificuldade(int niveldedificuldade) {
         this.niveldedificuldade = niveldedificuldade;
     }
+
+
 }
 
 
