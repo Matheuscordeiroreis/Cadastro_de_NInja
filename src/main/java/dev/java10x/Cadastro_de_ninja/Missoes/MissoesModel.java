@@ -1,4 +1,4 @@
-package dev.java10x.Cadastro_de_ninja.Missaoes;
+package dev.java10x.Cadastro_de_ninja.Missoes;
 
 import dev.java10x.Cadastro_de_ninja.Ninjas.NinjaModel;
 import jakarta.persistence.*;
@@ -16,8 +16,11 @@ import java.util.List;
 public class MissoesModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private long id;
+    @Column(name = "nomemissao")
     private String nomemissao;
+    @Column(name = "niveldificuldade")
     private int niveldedificuldade;
     @OneToMany
     private List<NinjaModel> ninjas;
