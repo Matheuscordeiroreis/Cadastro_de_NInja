@@ -5,7 +5,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Entity
 @Table (name = "tb_cadastro")
@@ -25,6 +24,6 @@ public class NinjaModel {
     private int idade;
     @ManyToOne
     @JoinColumn (name = "missoes_id")
-    private List<MissoesModel> missoes;
+    private MissoesModel missoes;
 
 }
