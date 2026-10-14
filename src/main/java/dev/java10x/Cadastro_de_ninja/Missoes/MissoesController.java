@@ -7,17 +7,22 @@ public class MissoesController {
 
     @GetMapping("listar")
     public String listarMissaoes(){
-        return "Missoes lsitadas com sucesso";
+        return "Missões lsitadas com sucesso";
     }
 
     @PostMapping("/criar")
     public String criarMissao(){
-        return "Missao Criada com sucesso";
+        return "Missão Criada com sucesso";
     }
 
     @PutMapping("/alterar")
     public String alterarMissao(){
-        return "Missao Alterada com sucesso";
+        return "Missão Alterada com sucesso";
+    }
+
+    @DeleteMapping("/deletarMissao")
+    public String deletarMissao(){
+        return "Missão deletada com sucesso";
     }
 
 }

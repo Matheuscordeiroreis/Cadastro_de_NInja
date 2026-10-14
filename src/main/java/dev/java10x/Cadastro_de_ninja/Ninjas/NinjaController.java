@@ -3,45 +3,39 @@ package dev.java10x.Cadastro_de_ninja.Ninjas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping
+@RequestMapping("/ninjas")
 public class NinjaController {
-
-    @GetMapping("/boasvindas")
-    public String boasVindas() {
-        return "Essa e minha primeira mesagem nessa rota";
-    }
-
 
     // Adicionar ninja (CREATE)
     @PostMapping("/criar")
     public String criarNinja() {
-        return "Ninja criado";
+        return "Ninja criado com sucesso";
     }
 
 
     //Procurar Ninja por ID (READ)
-    @GetMapping("/todosID")
+    @GetMapping("/listarID")
     public String verNinjasID(){
-        return "Ninja por id";
+        return "Ninjas listado por id com sucesso";
     }
 
     //Mostrar todos os ninjas (READ)
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String verNinjas(){
-        return "Ninja por id";
+        return "Ninjas listado com sucesso";
     }
 
 
     // Alterar dados dos ninjas (UPDATE)
-    @PutMapping("/alterarID")
+    @PutMapping("/alterar")
     public String alterarNinjasId(){
-        return "Alterar Ninjas por ID";
+        return "Alterar Ninjas com sucesso";
     }
 
     // Deletar Ninja (DELETE)
-    @DeleteMapping("/DeletarNinjas")
+    @DeleteMapping("/deletarNinjas")
     public String deletarNinjas(){
-        return "Deletar Ninjas";
+        return "Ninja deletado com sucesso";
     }
 
 
