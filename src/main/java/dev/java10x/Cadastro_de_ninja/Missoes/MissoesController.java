@@ -1,13 +1,23 @@
 package dev.java10x.Cadastro_de_ninja.Missoes;
+import dev.java10x.Cadastro_de_ninja.Ninjas.NinjaModel;
+import dev.java10x.Cadastro_de_ninja.Ninjas.NinjaService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
 
-    @GetMapping("listar")
-    public String listarMissaoes(){
-        return "Missões lsitadas com sucesso";
+    public MissoesController(MissoesService missoesService) {
+        this.missoesService = missoesService;
+    }
+
+    private MissoesService missoesService;
+
+    @GetMapping("/listar")
+    public List<MissoesModel> verMissoes(){
+        return missoesService.listarMissoes();
     }
 
     @PostMapping("/criar")
