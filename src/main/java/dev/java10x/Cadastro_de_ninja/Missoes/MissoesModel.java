@@ -18,11 +18,11 @@ public class MissoesModel {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private long id;
+    private Long id;
     @Column(name = "nomemissao")
     private String nomemissao;
     @Column(name = "niveldificuldade")
-    private int niveldedificuldade;
+    private Integer niveldedificuldade;
     @OneToMany(mappedBy = "missoes")
     @JsonIgnore
     private List<NinjaModel> ninjas;
