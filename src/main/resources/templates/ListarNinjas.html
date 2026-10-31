@@ -1,0 +1,68 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <title>Tabela de Ninjas</title>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Lista de Ninjas</h1>
+    <div class="d-flex">
+        <div class="ms-auto mb-2">
+            <a  th:href="@{/ninjas/ui/criar}" class="btn btn-success btn-sm">
+                Adicionar Ninja
+            </a>
+        </div>
+    </div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Email</th>
+            <th>Rank</th>
+            <th>Missões</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="ninja : ${ninjas}">
+            <td th:text="${ninja.id}"></td>
+            <td th:text="${ninja.nome}"></td>
+            <td th:text="${ninja.idade}"></td>
+            <td th:text="${ninja.email}"></td>
+            <td th:text="${ninja.rank}"></td>
+            <td>
+                <ul class="mb-0">
+                    <li th:each="missao : ${ninja.missoes}">
+                        <span th:text="${missao.nomemissao}"></span> <br>
+                        <span th:text="${missao.niveldedificuldade}">Nivel de dificuldade</span>
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <a th:href="@{/ninjas/ui/listar/{id}(id=${ninja.id})}"
+                   class="btn btn-primary btn-sm">
+                    Ver Detalhes
+                </a>
+                <a th:href="@{/ninjas/ui/editar/{id}(id=${ninja.id})}"
+                   class="btn btn-warning btn-sm">
+                    Alterar
+                </a>
+                <a th:href="@{/ninjas/ui/deletar/{id}(id=${ninja.id})}"
+                   class="btn btn-danger btn-sm">
+                    Deletar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
