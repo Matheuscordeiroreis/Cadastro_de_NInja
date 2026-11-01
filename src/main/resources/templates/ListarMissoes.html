@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+    <title>Tabela de Missões</title>
+    <div th:if="${mensagem}" class="alert alert-success alert-dismissible fade show" role="alert">
+        <span th:text="${mensagem}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+
+    <div th:if="${erro}" class="alert alert-danger alert-dismissible fade show" role="alert">
+        <span th:text="${erro}"></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+</head>
+<body>
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Lista de Missões</h1>
+    <div class="d-flex">
+        <div class="ms-auto mb-2">
+            <a  th:href="@{/missoes/ui/criar}" class="btn btn-success btn-sm">
+                Adicionar Missões
+            </a>
+        </div>
+    </div>
+    <table class="table table-striped table-hover table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Nome Missões</th>
+            <th>Nivel de Dificuldade</th>
+            <th></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="missao : ${missoes}">
+            <td th:text="${missao.id}"></td>
+            <td th:text="${missao.nomemissao}"></td>
+            <td th:text="${missao.niveldedificuldade}"></td>
+            <td>
+                <a th:href="@{/missoes/ui/editar/{id}(id=${missao.id})}"
+                   class="btn btn-warning btn-sm">
+                    Alterar
+                </a>
+                <a th:href="@{/missoes/ui/deletar/{id}(id=${missao.id})}"
+                        class="btn btn-danger btn-sm">
+                    Deletar
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
