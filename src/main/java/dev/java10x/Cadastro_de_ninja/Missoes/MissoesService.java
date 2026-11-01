@@ -33,8 +33,15 @@ public class MissoesService {
         return missoesMapper.map(missoesModel);
     }
 
-    public void deletarMissao (Long id){
-        missoesRepository.deleteById(id);
+    public boolean deletarMissao (Long id) {
+        MissoesModel missao = missoesRepository.findById(id).orElse(null);
+        if (missao == null) {
+            return false;
+        } else if (missao.getNinjas() != null && !missao.getNinjas().isEmpty()) {
+            return false;
+        }
+        missoesRepository.delete(missao);
+        return true;
     }
 
     public MissoesDTO atualizarMissoes (Long id, MissoesDTO missaoDTO) {
